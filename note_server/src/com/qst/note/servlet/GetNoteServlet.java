@@ -12,6 +12,7 @@ import com.qst.note.bean.NoteBean;
 import com.qst.note.dao.NoteDao;
 
 
+//根据id获取一条备忘记录
 @WebServlet("/GetNoteServlet")
 public class GetNoteServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
