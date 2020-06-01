@@ -118,5 +118,20 @@ public class NoteDao {
 		}
 		return all;
 	}
+	
+	//根据id删除一条备忘记录，删除成功返回true，失败返回false
+	public boolean deleteById(int id){
+		Connection c = DBUtil.getConnection();
+		try {
+			PreparedStatement pst = (PreparedStatement) c.prepareStatement("delete from note_table where id=?");
+			pst.setInt(1, id);
+			pst.execute();
+			DBUtil.close(c, pst, null);
+			return true;
+		} catch (SQLException e) {
+			e.printStackTrace();
+			return false;
+		}
+	}
 
 }
